@@ -10,6 +10,4 @@ public interface IConfig {
 	public String getURL();
 	
 	public Map<String, String> getMap();
-	
-	public Boolean getLogOnly();
 }

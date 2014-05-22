@@ -10,13 +10,11 @@ public class ServiceConfig implements IConfig{
 	private HTTPMethod mMethod;
 	private String mURL;
 	private Map<String, String> mMap;
-	private Boolean mLogOnly;
 	
-	public ServiceConfig(HTTPMethod method, String url, Map<String, String> map, Boolean logOnly) {
+	public ServiceConfig(HTTPMethod method, String url, Map<String, String> map) {
 		this.mMethod = method;
 		this.mURL = url;
 		this.mMap = map;
-		this.mLogOnly = logOnly;
 	}
 	
 	@Override
@@ -34,9 +32,4 @@ public class ServiceConfig implements IConfig{
 		return this.mMap;
 	}
 	
-	@Override
-	public Boolean getLogOnly() {
-		return this.mLogOnly;
-	}
-
 }

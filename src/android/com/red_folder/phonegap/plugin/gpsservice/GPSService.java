@@ -91,16 +91,8 @@ public class GPSService  extends BackgroundService implements Controller.IContro
 		throw new NotYetImplementedException();
 	}
 	
-	public boolean getLogOnly() {
-		return true;
-	}
-
-	public boolean setLogOnly() throws NotYetImplementedException {
-		throw new NotYetImplementedException();
-	}
-	
 	public IConfig getServiceConfig() {
-		return new ServiceConfig(this.getMethod(), this.getURL(), this.getMap(), this.getLogOnly());
+		return new ServiceConfig(this.getMethod(), this.getURL(), this.getMap());
 	}
 
 	/*
