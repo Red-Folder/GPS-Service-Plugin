@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="com.red_folder.phonegap.plugin.gpsservice"
+        version="0.0.1">
+
+    <name>GPS Service Plugin</name>
+
+    <description>
+        GPS Background Service Plugin for Cordova/ Phonegap
+    </description>
+
+    <license>Apache 2.0</license>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0"/>
+    </engines>
+
+	<!-- Load in the core background service -->
+	<dependency id="com.red_folder.phonegap.plugin.backgroundservice" url="https://github.com/Red-Folder/bgs-core.git" commit="ac66bca970aa53bf6dc0de2b5b9f251f283c9a65"/>
+
+    <!-- android -->
+    <platform name="android">
+
+		<asset src="www/gpsService.html" target="gpsService.html" />
+
+		<js-module src="www/gpsService.js" name="gpsService">
+			<clobbers target="cordova.plugins.GPSService" />
+		</js-module>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+			<service android:name="com.red_folder.phonegap.plugin.gpsservice.GPSService">
+				<intent-filter>
+					<action android:name="com.red_folder.phonegap.plugin.gpsservice.GPSService" />
+				</intent-filter>
+			</service>
+        </config-file>
+        
+		<config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+			<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+			<uses-permission android:name="android.permission.INTERNET" />
+			<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+        </config-file>
+		
+        <source-file src="src/android/com/red_folder/phonegap/plugin/gpsservice" target-dir="src/com/red_folder/phonegap/plugin" />
+    </platform>
+	
+</plugin>
